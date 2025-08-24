@@ -1,6 +1,6 @@
 # 2025 UG Test - ASR Model (Starter Repo)
 
-This repo provides a **minimal but complete** pipeline to fine-tune **Whisper-base** on a children's speech dataset with timestamped transcripts. It includes:
+
 
 - `prepare_data.py`: segment audio using timestamps and build HF-ready manifests
 - `train_lora.py`: LoRA fine-tuning of Whisper-base
@@ -76,18 +76,6 @@ Compare multiple checkpoints against the **original** Whisper-base:
 python eval.py       --manifests_dir data/manifests       --models openai/whisper-base outputs/lora-whisper-base outputs/decoder-only outputs/last2       --language en       --batch_size 8
 ```
 
-The script prints a table and writes `outputs/wer_results.json`.
-
-## 5) Reproducibility
-
-- Training/eval scripts set seeds and store `trainer_state.json`, `config.json`, and LoRA adapters (if used).
-- Include your `outputs/*` folder (or an HF Hub link) when you submit. Add any hardware details to the report.
-
-## 6) Tips for Children's Speech
-- Normalize text (lowercase, remove filler hesitations **only if** they are inconsistently transcribed).
-- Trim long leading/trailing silences; keep natural pauses **within** utterances.
-- Filter very short (<0.6s) or very long (>20–30s) segments, or concatenate adjacent shorts (optional) to stabilize training.
-- Consider speed perturbation (0.9–1.1x) to capture pitch/rate variability in child voices.
 
 ---
 **Subject title for submission:** `2025 UG Test - ASR Model`
