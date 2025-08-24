@@ -18,7 +18,7 @@ conda activate asr
 pip install -r requirements.txt
 ```
 
-You also need `ffmpeg` (for audio I/O).
+
 
 ## 1) Data Preparation
 
@@ -33,8 +33,7 @@ audio_path,start,end,text,split
 /abs/path/child1.wav,0.53,1.92,hello there,train
 /abs/path/child1.wav,2.05,3.10,how are you,test
 ```
-If your dataset provides a different schema (e.g., a single master audio per child + a separate transcript file),
-first merge them into this tabular form. The `split` column is optional if you pass `--split` on the CLI.
+
 
 Run segmentation & manifest build:
 ```bash
